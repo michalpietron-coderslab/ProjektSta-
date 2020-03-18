@@ -4,9 +4,7 @@ import ReactDOM from "react-dom";
 import "../style.scss";
 
 const api = "https://recruitment.hal.skygate.io/companies";
-// console.log(api);
 const api2 = (id) => `https://recruitment.hal.skygate.io/incomes/${id}`;
-// console.log(api2);
 
 class Companies extends Component {
   constructor(props) {
@@ -21,7 +19,6 @@ class Companies extends Component {
       .then((response) => {
         if (response.ok) {
           return response.json();
-          console.log(response.json());
         } else {
           throw Error("Błąd!");
         }
