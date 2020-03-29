@@ -4,7 +4,7 @@
 
 ## To Do
 * Utworzenie struktury projektu
-* Złądownie wymaganych bibliotek
+* Załadownie wymaganych bibliotek
 
 ## Technologie 
 * HTML5
@@ -14,7 +14,7 @@
 
 ## Instalacja 
 
-* Zakłądamy że npm jest zainstalowane. D0 instalacji wystarczy pobrać repozytorium i wykonać komendę
+* Zakładamy że npm jest zainstalowane. Do instalacji wystarczy pobrać repozytorium i wykonać komendę
 ```
 npm install
 ```
