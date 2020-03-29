@@ -15,6 +15,7 @@
 ## Instalacja 
 
 * Zakłądamy że npm jest zainstalowane. D0 instalacji wystarczy pobrać repozytorium i wykonać komendę
+```
 npm install
-
+```
 
