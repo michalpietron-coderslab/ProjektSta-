@@ -18,4 +18,5 @@
 ```
 npm install
 ```
-
+## Działąjace funkcjonalności
+* jeszcze brak
