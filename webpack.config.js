@@ -1,6 +1,6 @@
 const path = require("path");
 const entryPath = "/Main";
-const entryFile = "task01.js";
+const entryFile = "app.js";
 
 module.exports = {
   entry: ["whatwg-fetch", `./${entryPath}/js/${entryFile}`],
