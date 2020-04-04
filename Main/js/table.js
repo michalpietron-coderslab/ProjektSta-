@@ -7,6 +7,8 @@ export default class Table extends Component {
   }
 
   render() {
+    console.log('Table > ', this.props.tableData);
+
     return (
       <div>
         <table className="mainTable">
@@ -19,17 +21,40 @@ export default class Table extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.temData.map((dates) => (
-              <tr key={dates.id}>
-                <th>{dates.id}</th>
-                <th>{dates.name}</th>
-                <th>{dates.city}</th>
-                {/* <th>{dates.date}</th> */}
-              </tr>
+            {this.props.tableData.data.map((item, index) => (
+              <Row key={item.id} data={item} incomesItems={this.props.tableData.incomes[index]} />
             ))}
+
           </tbody>
         </table>
       </div>
+    );
+  }
+}
+
+class Row extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+
+  }
+  render() {
+    let { data, incomesItems } = this.props;
+    let incomesSum = 0;
+    if (incomesItems != undefined) {
+      incomesItems.incomes.map(element => {
+        incomesSum += parseFloat(element.value);
+      })
+    }
+
+
+    return (
+      <tr key={data.id}>
+        <td>{data.id}</td>
+        <td>{data.name}</td>
+        <td>{data.city}</td>
+        <td>{incomesSum.toFixed(2)}</td>
+      </tr>
     );
   }
 }
