@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
+import {
+  HashRouter,
+  Route,
+  Link,
+  Switch,
+  NavLink,
+} from 'react-router-dom';
+
 import "../scss/style.scss";
-import Table from "../js/table";
+import Table from "./Components/Table";
+import CompanyDetails from "./Components/CompanyDetails";
 
 const api = "https://recruitment.hal.skygate.io/companies";
 
@@ -11,13 +20,16 @@ class Companies extends Component {
     super(props);
     this.state = {
       data: [],
-    }
+    };
+    this.abortController = new AbortController;
   }
+
 
   componentDidMount() {
     console.log("ComponentDidMount...");
     console.log(`ComponentDidMount > Zaczynam ładować api: ${api}`);
-    fetch(api)
+
+    fetch(api, { signal: this.abortController.signal })
       .then((response) => {
         if (response.ok) {
           console.log(`ComponentDidMount > Zakończyłem ładowanie bez błędu`);
@@ -49,6 +61,25 @@ class Companies extends Component {
       )
     }
   }
+  componentWillUnmount() {
+    this.abortController.abort();
+  }
 }
 
-ReactDOM.render(<Companies />, document.getElementById("app"));
+
+
+
+
+class App extends Component {
+  render() {
+    return <HashRouter>
+      <>
+        <Route exact path='/' component={Companies} />
+        <Route path='/details/:id' component={CompanyDetails} />
+      </>
+    </HashRouter>;
+  }
+}
+
+
+ReactDOM.render(<App />, document.getElementById("app"));
