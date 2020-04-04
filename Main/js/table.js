@@ -24,7 +24,7 @@ export default class Table extends Component {
                 <th>{dates.id}</th>
                 <th>{dates.name}</th>
                 <th>{dates.city}</th>
-                <th>{dates.date}</th>
+                {/* <th>{dates.date}</th> */}
               </tr>
             ))}
           </tbody>
