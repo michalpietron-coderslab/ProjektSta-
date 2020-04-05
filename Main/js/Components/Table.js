@@ -8,15 +8,6 @@ import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-a
 
 import CompanyItem from './CompanyItem';
 
-var products = [{
-  id: 1,
-  name: "Product1",
-  price: 120
-}, {
-  id: 2,
-  name: "Product2",
-  price: 80
-}];
 
 
 export default class Table extends Component {
